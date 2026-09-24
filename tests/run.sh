@@ -13,10 +13,22 @@ run_tests() {
     do
         echo "---------------------------[ПРОВЕДЕНИЕ ТЕСТИРОВАНИЯ $CURRENT_SUBTEST]---------------------------"
         cat "$TESTS_DIR/task${i}/in${CURRENT_SUBTEST}.txt" | "$PROJECT_DIR/build/listing${i}" > "$TESTS_DIR/task${i}/out${CURRENT_SUBTEST}Irl.txt"
+
+        echo "Исходные данные:"
+        cat "$TESTS_DIR/task${i}/in${CURRENT_SUBTEST}.txt"
+        echo "Ожидаемый результат:"
+        cat "$TESTS_DIR/task${i}/out${CURRENT_SUBTEST}Exp.txt"
+        echo "Полученный результат:"
+        cat "$TESTS_DIR/task${i}/out${CURRENT_SUBTEST}Irl.txt"
+
         if cmp -s "$TESTS_DIR/task${i}/out${CURRENT_SUBTEST}Irl.txt" "$TESTS_DIR/task${i}/out${CURRENT_SUBTEST}Exp.txt"; then
+            echo ""
             echo "Полученный результат совпал с ожидаемым, тест пройден"
+            echo ""
         else
+            echo ""
             echo "Полученный и ожидаемый результаты отличаются, тест не пройден"
+            echo "Отличия в результатах:"
             diff -u "$TESTS_DIR/task${i}/out${CURRENT_SUBTEST}Irl.txt" "$TESTS_DIR/task${i}/out${CURRENT_SUBTEST}Exp.txt"
             echo ""
         fi
