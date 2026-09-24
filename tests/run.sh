@@ -23,11 +23,11 @@ run_tests() {
 
         if cmp -s "$TESTS_DIR/task${i}/out${CURRENT_SUBTEST}Irl.txt" "$TESTS_DIR/task${i}/out${CURRENT_SUBTEST}Exp.txt"; then
             echo ""
-            echo "Полученный результат совпал с ожидаемым, тест пройден"
+            echo -e "\033[0;32mПолученный результат совпал с ожидаемым, тест пройден\033[0m"
             echo ""
         else
             echo ""
-            echo "Полученный и ожидаемый результаты отличаются, тест не пройден"
+            echo -e "\033[0;31mПолученный и ожидаемый результаты отличаются, тест не пройден\033[0m"
             echo "Отличия в результатах:"
             diff -u "$TESTS_DIR/task${i}/out${CURRENT_SUBTEST}Irl.txt" "$TESTS_DIR/task${i}/out${CURRENT_SUBTEST}Exp.txt"
             echo ""
