@@ -29,7 +29,7 @@ run_tests() {
             echo ""
             echo -e "\033[0;31mПолученный и ожидаемый результаты отличаются, тест не пройден\033[0m"
             echo "Отличия в результатах:"
-            diff -u "$TESTS_DIR/task${i}/out${CURRENT_SUBTEST}Irl.txt" "$TESTS_DIR/task${i}/out${CURRENT_SUBTEST}Exp.txt"
+            git diff --no-index "$TESTS_DIR/task${i}/out${CURRENT_SUBTEST}Irl.txt" "$TESTS_DIR/task${i}/out${CURRENT_SUBTEST}Exp.txt"
             echo ""
         fi
     done
