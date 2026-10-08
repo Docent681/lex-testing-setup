@@ -15,7 +15,7 @@ if [[ -z "$1" ]]; then
     exit 1
 fi
 
-TESTS_DIR="$(< dir_path)"
+TESTS_DIR="$(< dir_path)/tests"
 
 for TASK_DIR in "$TESTS_DIR/"*
 do

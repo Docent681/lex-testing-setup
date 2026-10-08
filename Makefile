@@ -25,6 +25,3 @@ $(BUILD_DIR):
 
 clean:
 	rm -rf $(BUILD_DIR)
-
-test: all
-	@bash tests/run.sh
