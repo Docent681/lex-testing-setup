@@ -1,2 +1,3 @@
 tests/*
+dir_path
 !tests/run.sh

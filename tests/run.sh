@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+set -euo pipefail
+
 run_tests() {
     echo "===========================[ТЕСТИРОВАНИЕ ЛИСТИНГА $i]==========================="
     echo ""
@@ -43,7 +45,13 @@ if [[ -z "$1" ]]; then
     exit 1
 fi
 
-PROJECT_DIR="$HOME/FGTC/Labs/Lab1"
+
+if [[ ! -f "./dir_path" ]]; then
+    echo "Не нашли файл dir_path с указанием корня проекта в текущей директории, выходим из программы"
+    exit 1
+fi
+
+PROJECT_DIR="$(< dir_path)"
 TESTS_DIR="$PROJECT_DIR/tests"
 
 if [[ "$1" == "all" ]]; then

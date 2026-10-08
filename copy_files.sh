@@ -1,7 +1,13 @@
 #!/usr/bin/bash
 
+set -euo pipefail
 
-TESTS_DIR="$HOME/FGTC/Labs/Lab1/tests"
+if [[ ! -f "./dir_path" ]]; then
+    echo "Не нашли файл dir_path с указанием корня проекта в текущей директории, выходим из программы"
+    exit 1
+fi
+
+TESTS_DIR="$(< dir_path)"
 
 
 for TASK_DIR in "$TESTS_DIR/"*

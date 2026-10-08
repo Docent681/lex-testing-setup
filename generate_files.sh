@@ -1,5 +1,13 @@
 #!/usr/bin/bash
 
+set -euo pipefail
+
+if [[ ! -f "./dir_path" ]]; then
+    echo "Не нашли файл dir_path с указанием корня проекта в текущей директории, выходим из программы"
+    exit 1
+fi
+
+
 if [[ -z "$1" ]]; then
     printf "Использование:\n"
     printf "generate_files.sh <количество_групп_файлов>\n"
@@ -7,7 +15,7 @@ if [[ -z "$1" ]]; then
     exit 1
 fi
 
-TESTS_DIR="$HOME/FGTC/Labs/Lab1/tests"
+TESTS_DIR="$(< dir_path)"
 
 for TASK_DIR in "$TESTS_DIR/"*
 do

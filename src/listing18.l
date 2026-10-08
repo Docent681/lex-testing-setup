@@ -11,7 +11,7 @@ int yywrap() { return 1; }
 
 int main(void)
 {
-    while (yylex())
-        ;
+    while (yylex());
+    printf( "she: %d times, he: %d times\n", s, h );
     return 0;
 }

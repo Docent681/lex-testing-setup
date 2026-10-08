@@ -1,4 +1,7 @@
-    int state;
+%{
+int state;
+%}
+
 %%
 ^1 { state = 1; ECHO; }
 ^2 { state = 2; ECHO; }
