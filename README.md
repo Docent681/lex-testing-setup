@@ -17,7 +17,7 @@
 Убедитесь, что у вас установлены все необходимые программы. Далее склонируйте данный репозиторий следующей командой:
 
 ```shell 
-git https://github.com/Docent681/lex-testing-setup.git
+git clone https://github.com/Docent681/lex-testing-setup.git
 ```
 
 ## Использование
